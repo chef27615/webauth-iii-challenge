@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const Users = require('./users-model');
+const restrictions = require('../auth/restricted-middleware');
 
 
-
-router.get('/', (req, res) => {
+router.get('/', restrictions, (req, res) => {
     Users.find()
     .then(users => {
         res.json(users)
@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
     })
 });
 
-router.use((req, res, next) => {
-    res.status(404).json({message:"no users here yet"})
-})
+// router.use((req, res, next) => {
+//     res.status(404).json({message:"no users here yet"})
+// })
 
 module.exports = router;

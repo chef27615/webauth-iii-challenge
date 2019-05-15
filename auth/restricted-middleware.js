@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
            if(err){
                res.status(401).json({message:'coin is not right'})
            }else{
-               req.decodedJWT = decodedToken;
+               req.decodedJwt = decodedToken;
                next()
            } 
         })

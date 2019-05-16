@@ -34,10 +34,6 @@ router.put('/:id', restrictions, async (req, res) => {
 
 
 
-
-
-
-
 router.use((req, res, next) => {
     res.status(404).json({message:"no users here yet"})
 })

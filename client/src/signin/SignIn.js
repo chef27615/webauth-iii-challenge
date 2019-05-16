@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default class SignIn extends Component {
     state = {
-        username:'',
+        name:'',
         password:''
     }
 
@@ -34,10 +34,10 @@ export default class SignIn extends Component {
             <div>
                 <label htmlFor='username' />
                 <input 
-                    name="username"
-                    id="username"
+                    name="name"
+                    id="name"
                     type="text"
-                    placeholder="username"
+                    placeholder="name"
                     value={this.state.username}
                     onChange={this.handleChange}
                 />

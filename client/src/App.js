@@ -21,7 +21,7 @@ function App() {
       <main>
         <Route path='/signin' component = {SignIn} />
         <Route path='/users' component = {Users} />
-        <Route path='signup' component = {SignUp} />
+        <Route path='/signup' component = {SignUp} />
       </main>
     </div>
   );

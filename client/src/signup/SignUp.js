@@ -4,7 +4,7 @@ import axios from 'axios';
 export default class SignUp extends Component {
 
     state = {
-        username:'',
+        name:'',
         password:'',
         department:''
     }
@@ -16,13 +16,14 @@ export default class SignUp extends Component {
         })
     }
 
-    onSubmit = e => {
+    handleSubmit = e => {
         e.preventDefault();
         const endpoint = 'http://localhost:6500/api/auth/register';
         axios.post(endpoint, this.state)
         .then(res => {
-            localStorage.setItem('jwt', res.data.token);
-            this.props.history.push('/users');
+            // localStorage.setItem('jwt', res.data.token);
+            // this.props.history.push('/users');
+            alert('thank you')
         })
         .catch(err => {
             console.log(err)
@@ -35,11 +36,12 @@ export default class SignUp extends Component {
         <h2>Sign Up</h2>
         <form onSubmit={this.handleSubmit}>
             <div>
-                <label htmlFor="username" />
+                <label htmlFor="name" />
                 <input 
-                    name="username"
-                    id="username"
-                    value={this.state.username}
+                    name="name"
+                    id="name"
+                    placeholder="name"
+                    value={this.state.name}
                     onChange={this.handleChange}
                 />
             </div>
@@ -48,6 +50,7 @@ export default class SignUp extends Component {
                 <input 
                     name="password"
                     id="password"
+                    placeholder="password"
                     value={this.state.password}
                     onChange={this.handleChange}
                 />
@@ -57,12 +60,13 @@ export default class SignUp extends Component {
                 <input 
                     name="department"
                     id="department"
+                    placeholder="department"
                     value={this.state.department}
                     onChange={this.handleChange}
                 />
             </div>
             <div>
-                <button type="submit">SingUp</button>
+                <button type="submit">SignUp</button>
             </div>
         </form>
       </div>

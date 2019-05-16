@@ -21,7 +21,7 @@ export default class Users extends Component {
   }
 
   componentDidMount(){
-      axios.get('./users')
+      axios.get('http://localhost:6500/api/users')
       .then(res => {
           this.setState({ users: res.data })
       })

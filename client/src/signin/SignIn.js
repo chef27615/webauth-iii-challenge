@@ -19,7 +19,8 @@ export default class SignIn extends Component {
 
         axios.post(endpoint, this.state)
         .then(res => {
-            localStorage.getItem('jwt', res.data.token);
+            console.log('token', res.data.token)
+            localStorage.setItem('jwt', res.data.token);
             this.props.history.push('/users');
         })
         .catch(err => { console.log(err)});
@@ -43,7 +44,6 @@ export default class SignIn extends Component {
                 />
             </div>
             <br/>
-            <br/>
             <div>
                 <label htmlFor='password' />
                 <input 
@@ -55,6 +55,7 @@ export default class SignIn extends Component {
                     onChange={this.handleChange}
                 />
             </div>
+            <br/>
             <div>
                 <button type="submit">Sign In</button>
             </div>

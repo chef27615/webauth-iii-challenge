@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import requiresAuth from '../auth/requiresAuth';
 
-export default class Users extends Component {
+class Users extends Component {
 
     state = {
         users: []
@@ -21,9 +22,12 @@ export default class Users extends Component {
   }
 
   componentDidMount(){
+
       axios.get('http://localhost:6500/api/users')
       .then(res => {
           this.setState({ users: res.data })
       })
   }
 }
+
+export default requiresAuth(Users);
